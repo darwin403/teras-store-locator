@@ -41,6 +41,8 @@ npm run watch
 
 **CRITICAL:** While going through the API, I've noticed that your variables are not properly handled. This may lead to SQL injection in future!
 
+I've updated all `$_POST` to `$_GET` since this is the appropriate one for our case.
+
 Some of the following modifications are required to be made on your backend API for better coding standards and convenient usage of data on the frontend. The changes that I've made are CLEARLY commented at the start with the following `// !`. Here is an example of one such comment in`products.php`.
 
 ```php
