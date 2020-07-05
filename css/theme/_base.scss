@@ -1,0 +1,106 @@
+/***********************
+ * BOOTSTRAP VARIABLES *
+ ***********************/
+
+// Override Variables
+$primary: #3d86b1;
+$font-family-sans-serif: "CalibreWeb-Regular", -apple-system, BlinkMacSystemFont,
+  "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
+  "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+
+$input-border-color: $primary;
+$input-btn-focus-box-shadow: none;
+
+$input-border-radius: 0;
+$input-border-radius-sm: 0;
+$input-border-radius-lg: 0;
+
+$btn-border-radius: 0;
+$btn-border-radius-sm: 0;
+$btn-border-radius-lg: 0;
+
+// Load default Variables
+@import "node_modules/bootstrap/scss/_functions.scss";
+@import "node_modules/bootstrap/scss/_variables.scss";
+
+// Dependency Variables
+$headings-font-weight: $font-weight-bold;
+$input-placeholder-color: $gray-500;
+
+/*******************
+ * BOOTSTRAP THEME *
+ *******************/
+
+@font-face {
+  font-family: "CalibreWeb-Semibold";
+  src: url("fonts/Calibre-Semibold.otf"); /* IE9 Compat Modes */
+}
+
+@font-face {
+  font-family: "CalibreWeb-Regular";
+  src: url("fonts/Calibre-Regular.otf"); /* IE9 Compat Modes */
+}
+
+.container-fluid {
+  padding: 0 !important;
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background: rgb(255, 255, 255, 0.7);
+  z-index: 10;
+  .spinner-border {
+    width: 3rem;
+    height: 3rem;
+  }
+}
+
+#results-main > .row > .col {
+  height: 100vh;
+}
+
+#col-sidebar {
+  position: relative;
+  display: none;
+  #stores {
+    height: calc(100% - 38px); // manually search bar height
+  }
+  #store,
+  #products {
+    height: 100%;
+  }
+
+  #stores-results,
+  #store-result {
+    height: calc(100% - 62px); // manually calculate title height
+    overflow-y: auto;
+  }
+
+  #product-results {
+    height: calc(100% - 118px); // manually calculate title height
+    overflow-y: auto;
+  }
+}
+
+#col-map {
+  position: relative;
+}
+
+#map {
+  height: 100%;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+/********************
+ * IMPORT BOOTSTRAP *
+ ********************/
+
+@import "node_modules/bootstrap/scss/bootstrap.scss";

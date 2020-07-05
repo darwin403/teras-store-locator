@@ -1,0 +1,11 @@
+{
+  "scripts": {
+    "watch": "sass --watch teras.scss:teras.css mybrand.scss:mybrand.css"
+  },
+  "dependencies": {
+    "bootstrap": "5.0.0-alpha1",
+    "i": "^0.3.6",
+    "npm": "^6.14.5",
+    "sass": "^1.26.9"
+  }
+}
