@@ -122,7 +122,7 @@ $HAS_STORES = isset($online_sources);
             </li>
           </ul>
           <!-- Results -->
-          <ul class="list-group list-group-flush" id="stores-results"></ul>
+          <ul class="list-group list-group-flush" id="stores-results" data-scrollTop="0"></ul>
         </div>
 
         <!-- Store -->

@@ -35,6 +35,7 @@ const elements = {
   storesResults: document.getElementById("stores-results"),
   stores: document.getElementById("stores"),
   store: document.getElementById("store"),
+  storeResult: document.getElementById("store-result"),
   storeName: document.getElementById("store-name"),
   storeDetails: document.getElementById("store-details"),
   storeProducts: document.getElementById("store-products"),
@@ -374,6 +375,9 @@ class MyMap {
  * SEARCH STORES BY *
  ********************/
 const searchStores = {
+  _reset: function () {
+    $(elements.storesResults).data("scrollTop", 0);
+  },
   _options: {
     lat: null,
     lng: null,
@@ -385,6 +389,8 @@ const searchStores = {
     setdbaseBrand: BRAND_BASE,
   },
   gps: function () {
+    this._reset();
+
     if (!navigator.geolocation) {
       error.stores("Location services are not available on your browser");
       return;
@@ -422,6 +428,8 @@ const searchStores = {
     );
   },
   address: function () {
+    this._reset();
+
     // Get coordinates from Google's Geocoder
     myMap.addressToCoordinates(address, (coordinates) => {
       fetch.stores(
@@ -434,6 +442,8 @@ const searchStores = {
     });
   },
   products: function () {
+    this._reset();
+
     fetch.stores(
       Object.assign(this._options, {
         lat: myMap.center.lat,
@@ -722,6 +732,11 @@ const show = {
   stores: function () {
     this._reset();
     $(elements.stores).show();
+
+    // Update scroll position
+    $(elements.storesResults).scrollTop(
+      parseInt($(elements.storesResults).data("scrollTop"))
+    );
   },
   store: function () {
     this._reset();
@@ -839,6 +854,13 @@ if (HAS_STORES) {
   $(elements.modalCol).show();
 }
 
+// Scroll listeners
+$(elements.storesResults).scroll(function (a, b, c) {
+  $(elements.storesResults).data(
+    "scrollTop",
+    $(elements.storesResults).scrollTop()
+  );
+});
 /*******
  * END *
  *******/
