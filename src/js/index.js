@@ -381,6 +381,7 @@ const searchStores = {
   _options: {
     lat: null,
     lng: null,
+    address: address,
     radius: RADIUS,
     resultslimit: LIMIT,
     upcSelect: null,
