@@ -381,7 +381,7 @@ const searchStores = {
   _options: {
     lat: null,
     lng: null,
-    address: address,
+    addressinputmain: address,
     radius: RADIUS,
     resultslimit: LIMIT,
     upcSelect: null,
@@ -840,14 +840,20 @@ myMap = new MyMap();
 // Fetch products
 fetch.products({ brand: BRAND }, set.products);
 
-// Watch for sidebar updates
+// Watch for store results updates
 $(elements.storesResults).bind("DOMSubtreeModified", function () {
   if ($(this).html().trim()) {
     $(elements.sidebarCol).show();
     $(elements.searchMain).hide();
+
+    // Send message to parent
+    parent.postMessage("stores-results", "*");
   } else {
     $(elements.sidebarCol).hide();
   }
+
+  // Stop watching for store results updates
+  $(elements.storesResults).unbind();
 });
 
 // Show online stores if exists
