@@ -9,12 +9,12 @@
     <style>
       .iframe-container {
         width: 100%;
-        height: 100%;
+        height: 300px;
       }
 
       iframe {
-        width: inherit;
-        height: auto;
+        width: 100%;
+        height: 100%;
       }
     </style>
   </head>
